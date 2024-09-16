@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #f0f0f0;
+}
+.navItems > ul {
+  display: flex;
+  padding: 10px;
+}
+.navItems > ul > li {
+  list-style: none;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+#body {
+  padding: 10px;
+}
+.filter {
+  padding: 10px;
+}
+.TopRestaurant {
+  background-color: #aa0000;
+  border-radius: 5px;
+  border-color: #aa0000;
+  color: #fff;
+  font-weight: 500;
+  width: auto;
+  height: 35px;
+  cursor: pointer;
+}
+.restaurantContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.resContainer {
+  border: 1px solid #dfdfdf;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 13px;
+}
+.resName {
+  margin-top: -15px;
+}
+.resCuisins {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 190px;
+  color: #887e7e;
+  font-weight: 400;
+}
+.resFooter {
+  display: flex;
+  color: #696363;
+  margin-top: -15px;
+  justify-content: space-between;
+}
+.resFooter > h4 {
+  margin-right: 11px;
+  font-size: 14px;
+}
+.resCuisins {
+  margin-top: -3px;
+}
+.resContainer:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.resTime {
+  right: 0;
+  position: relative;
+}

@@ -1,0 +1,144 @@
+:root{
+  --bg-color :#aa0000;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #f0f0f0;
+}
+.navItems > ul {
+  display: flex;
+  padding: 10px;
+}
+.navItems > ul > li {
+  list-style: none;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+#body {
+  padding: 10px;
+}
+.filter {
+  padding: 10px;
+  display: flex;
+  width: 95%;
+}
+.TopRestaurant {
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  border-color: #aa0000;
+  color: #fff;
+  font-weight: 500;
+  width: auto;
+  height: 35px;
+  cursor: pointer;
+}
+.restaurantContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.resContainer {
+  margin-left: 0;
+  border: 1px solid #dfdfdf;
+  width: 190px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 13px;
+}
+.resName {
+  margin-top: -15px;
+}
+.resName h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.resCuisins {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #887e7e;
+  font-weight: 400;
+}
+.resFooter {
+  display: flex;
+  color: #696363;
+  margin-top: -15px;
+  justify-content: space-between;
+}
+.resFooter > h4 {
+  margin-right: 11px;
+  font-size: 14px;
+}
+.resCuisins {
+  margin-top: -3px;
+}
+.resContainer:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.resTime {
+  right: 0;
+  position: relative;
+}
+.resShimmerImg {
+  height: 130px;
+  width: 190px;
+  background-color: #f0f0f0;
+}
+.resShimmerName {
+  background-color: #f0f0f0;
+  height: 25px;
+  margin-top: -10px;
+}
+.resShimmerFooter {
+  background-color: #f0f0f0;
+  height: 25px;
+  width: 75%;
+  margin-top: -7px;
+}
+.resShimmerCuisins {
+  background-color: #f0f0f0;
+  height: 25px;
+  width: 50%;
+  margin-top: -4px;
+}
+.logstate{
+  background-color: #aa0000;
+  border-radius: 5px;
+  border-color: #aa0000;
+  color: #fff;
+  font-weight: 500;
+  width: 65px;
+  height: 25px;
+  cursor: pointer;
+}
+.search{
+  margin-right:20px ;
+  width:85%;
+  display: flex;
+  justify-content: center;
+}
+.searchInput{
+  height: 25px;
+  border-radius: 5px;
+  border-color: #aa0000;
+  width: 86%;
+}
+.searchButton{
+  height: 30px;
+  border-radius: 5px;
+  border-color: #aa0000;
+  background-color: #aa0000;
+  color:#fff;
+  margin-left: 2px;
+  cursor: pointer;
+}
+::placeholder {
+  color: #aa0000;
+  opacity: 0.5;
+}

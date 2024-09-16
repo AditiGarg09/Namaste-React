@@ -1,0 +1,273 @@
+:root {
+  --bg-color: #aa0000;
+}
+
+.resCardLink {
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 200;
+}
+
+.navItems ul {
+  display: flex;
+  padding: 10px;
+}
+
+.navItems > ul > li {
+  font-weight: 600;
+  width: 80px;
+  height: 25px;
+  margin: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerButton {
+  text-decoration: none;
+  color: rgba(2, 6, 12, 0.92);
+}
+
+.headerButton:hover {
+  color: #aa0000;
+}
+
+.navItems > ul > li:hover {
+  color: #aa0000;
+}
+
+#body {
+  padding: 10px;
+  top: 15%;
+  position: relative;
+  z-index: 1;
+}
+
+.filter {
+  padding: 10px;
+  display: flex;
+  width: 95%;
+}
+
+.TopRestaurant {
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  border-color: #aa0000;
+  color: #fff;
+  font-weight: 500;
+  width: auto;
+  height: 35px;
+  cursor: pointer;
+}
+
+.restaurantContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.resContainer {
+  margin-left: 0;
+  border: 1px solid #dfdfdf;
+  width: 190px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 13px;
+}
+
+.resImg {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.resImg img {
+  display: block;
+  transition: all .7s;
+}
+
+.resContainer:hover .resImg img {
+  transform: scale(1.2);
+  transform-origin: 50% 50%;
+}
+
+.resName {
+  margin-top: -15px;
+}
+
+.resName h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgba(2, 6, 12, 0.92);
+}
+
+.resCuisins {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #887e7e;
+  font-weight: 400;
+}
+
+.resFooter {
+  display: flex;
+  color: #696363;
+  margin-top: -15px;
+  justify-content: space-between;
+}
+
+.resFooter > h4 {
+  margin-right: 11px;
+  font-size: 14px;
+}
+
+.resCuisins {
+  margin-top: -3px;
+}
+
+.resContainer:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.resTime {
+  right: 0;
+  position: relative;
+}
+
+.resShimmerImg {
+  height: 130px;
+  width: 190px;
+  background-color: #f0f0f0;
+}
+
+.resShimmerName {
+  background-color: #f0f0f0;
+  height: 25px;
+  margin-top: -10px;
+}
+
+.resShimmerFooter {
+  background-color: #f0f0f0;
+  height: 25px;
+  width: 75%;
+  margin-top: -7px;
+}
+
+.resShimmerCuisins {
+  background-color: #f0f0f0;
+  height: 25px;
+  width: 50%;
+  margin-top: -4px;
+}
+
+.logstate {
+  background-color: #aa0000;
+  border: 1px solid #aa0000;
+  border-radius: 5px;
+  font-weight: 500;
+  width: 100%;
+  color: #fff;
+  height: 25px;
+  cursor: pointer;
+}
+
+.search {
+  margin-right: 20px;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput {
+  height: 25px;
+  border-radius: 5px;
+  border-color: #aa0000;
+  width: 86%;
+}
+
+.searchButton {
+  height: 30px;
+  border-radius: 5px;
+  border-color: #aa0000;
+  background-color: #aa0000;
+  color: #fff;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #aa0000;
+  opacity: 0.5;
+}
+
+.logo img {
+  position: absolute;
+  left: 6.3%;
+  top: 25%;
+}
+
+.resMenu {
+  border-top: 1px solid #767575;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+}
+
+.resMenuItems {
+  padding: 3%;
+  margin: auto;
+}
+
+.menuName {
+  text-align: center;
+}
+
+.resMenuDetails {
+  width: 70%;
+}
+
+iframe {
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+.aboutUsFuture {
+  width: 90%;
+  height: 300px;
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  display: flex;
+  margin: -3px auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutUsFuture p {
+  width: 50%;
+}
+
+.userCard {
+  border: 1px solid #f0f0f0;
+  width: 90%;
+  height: 300px;
+  text-align: center;
+  margin: -3px auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
