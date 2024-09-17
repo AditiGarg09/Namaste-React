@@ -1,12 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
-import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+const AboutUs = lazy(() => import("./components/AboutUs"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+const ContactUs = lazy(() => import("./components/ContactUs"));
+const Freshmart = lazy(() => import("./components/Freshmart"));
 
 const App = () => {
   return (
@@ -29,16 +31,36 @@ const headerRouting = createBrowserRouter([
         element: <Body />,
       },
       {
+        path: "/freshmart",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Freshmart />
+          </Suspense>
+        ),
+      },
+      {
         path: "/aboutUs",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
         path: "/contactUs",
-        element: <ContactUs />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <ContactUs />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

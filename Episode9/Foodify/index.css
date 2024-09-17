@@ -93,7 +93,7 @@
 
 .resImg img {
   display: block;
-  transition: all .7s;
+  transition: all 0.7s;
 }
 
 .resContainer:hover .resImg img {
@@ -271,3 +271,12 @@ iframe {
   display: flex;
   flex-direction: column;
 }
+.onlineStatusInstruction {
+  color: #767575;
+  font-weight: 400;
+  font-size: 25px;
+}
+/* .onlineStatusLogo {
+  height: fit-content;
+  cursor: default;
+} */

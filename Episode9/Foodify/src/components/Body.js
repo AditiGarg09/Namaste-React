@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ShimmerCards from "./ShimmerCards";
 import RestaurantCard from "./RestaurantCard";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [resSearch, setResSearch] = useState("");
-
+  const onlineStatus = useOnlineStatus();
+  // const { resList, filteredResList } = useRestaurantList;
   useEffect(() => {
     fetchData();
   }, []);
@@ -27,6 +30,18 @@ const Body = () => {
         ?.restaurants
     );
   };
+
+  if (onlineStatus === false) {
+    return (
+      <>
+        <div>
+          <h1 className="onlineStatusInstruction">
+            Please check your Internet Connection!!!
+          </h1>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

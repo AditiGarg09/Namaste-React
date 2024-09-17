@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import image from "../../images/headerLogo.png";
+// import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [logState, setLogState] = useState(true);
+  // const onlineStatus = useOnlineStatus();
 
   const handleLogState = () => {
     setLogState(!logState);
@@ -12,6 +14,9 @@ const Header = () => {
   return (
     <>
       <div className="header">
+        {/* <div className="onlineStatusLogo" title="Online Status">
+          {onlineStatus ? "🟢" : "🔴"}
+        </div> */}
         <Link to="/">
           <div className="logo">
             <img width="50px" src={image} />
@@ -22,6 +27,11 @@ const Header = () => {
             <li>
               <Link to="/" className="headerButton">
                 Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/freshmart" className="headerButton">
+                Freshmart
               </Link>
             </li>
             <li>
