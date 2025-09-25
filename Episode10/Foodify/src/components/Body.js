@@ -46,19 +46,19 @@ const Body = () => {
   return (
     <>
       <div id="body">
-        <div className="filter">
-          <div className="search">
+        <div className="flex items-center">
+          <div className="flex items-center p-2 mx-4">
             <input
               type="text"
               placeholder="Search Restaurant"
-              className="searchInput"
+              className="border-2 border-solid border-red-700 rounded-md placeholder-gray-500 placeholder-opacity-50 focus:placeholder-gray-400"
               value={resSearch}
               onChange={(ev) => {
                 setResSearch(ev.target.value);
               }}
             />
             <button
-              className="searchButton"
+              className="my-4 mx-2 p-2 rounded-md bg-red-300 cursor-pointer hover:bg-red-700 hover:text-white"
               onClick={() => {
                 setResList(resList);
                 const filteredRestaurant = resList.filter((res) =>
@@ -72,11 +72,10 @@ const Body = () => {
                   setFilteredResList(resList);
                 }
               }}
-            >
-              <i className="fa fa-search" />
+            > Search
             </button>
           </div>
-          <div style={{ marginLeft: "-50px" }}>
+          <div className="p-2">
             <button
               onClick={() => {
                 const newResList = resList.filter(
@@ -84,13 +83,13 @@ const Body = () => {
                 );
                 setFilteredResList(newResList);
               }}
-              className="TopRestaurant"
+              className="my-4 p-2 rounded-md bg-green-200 cursor-pointer hover:bg-green-700 hover:text-white"
             >
               Top Restaurants
             </button>
           </div>
         </div>
-        <div className="restaurantContainer">
+        <div className="flex flex-wrap">
           {resList.length == 0 ? (
             <>
               <ShimmerCards />

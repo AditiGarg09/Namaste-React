@@ -1,7 +1,7 @@
 const Freshmart = () => {
     return(
         <>
-            <h1>Grocery Store!!!</h1>
+            <h1 className="m-4 p-4">Grocery Store Launching Soon!!!</h1>
         </>
     )
 }

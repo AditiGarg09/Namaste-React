@@ -3,7 +3,7 @@ import User from "./User";
 const AboutUs = () => {
   return (
     <>
-      <div className="aboutUsVideo">
+      <div className="aboutUsVideo m-4 p-4">
         <iframe
           width="90%"
           height="470"

@@ -5,25 +5,23 @@ const RestaurantCard = (props) => {
 
   return (
     <>
-      <div className="resContainer">
-        <div className="resImg">
+      <div className="m-4 p-4 w-63 bg-gray-100 rounded-lg h-96 overflow-hidden hover:shadow-2xl">
+        <div className="overflow-hidden rounded-lg">
           <img
             src={CDN_images + cloudinaryImageId}
-            height="130px"
-            width="190"
+            className="hover:scale-125 transition duration-500 ease-in-out h-44 w-full"
           />
         </div>
-        <div className="resName">
+        <div className="font-bold py-4 text-lg overflow-hidden text-ellipsis whitespace-nowrap">
           <h3 title={name}>{name}</h3>
         </div>
-        <div className="resFooter">
+        <div className="flex justify-between">
           <h4>
             <span className="fa fa-star checked"></span> {avgRating}
           </h4>
           <h4 className="resTime">{sla.slaString}</h4>
-          {/* <h4 className="resPrice">&#8377;{costForTwo}</h4> */}
         </div>
-        <h4 className="resCuisins" title={cuisines}>
+        <h4 className="py-4 text-ellipsis" title={cuisines}>
           {cuisines.join(", ")}
         </h4>
       </div>
