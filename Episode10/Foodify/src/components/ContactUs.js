@@ -1,9 +1,9 @@
-import React from 'react'
+import User from "./User";
 
 const ContactUs = () => {
   return (
     <div className='m-4 p-4'>
-      ContactUs
+      <User name={"Aditi Garg"} location={"India"} />
     </div>
   )
 }

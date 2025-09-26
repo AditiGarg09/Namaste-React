@@ -72,7 +72,9 @@ const Body = () => {
                   setFilteredResList(resList);
                 }
               }}
-            > Search
+            >
+              {" "}
+              Search
             </button>
           </div>
           <div className="p-2">

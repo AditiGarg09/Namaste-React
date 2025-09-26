@@ -25,9 +25,7 @@ const Header = () => {
         <div className="flex items-center">
           <ul className="flex p-2 m-2">
             <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
-              <Link to="/">
-                Home
-              </Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
               <Link to="/freshmart" className="headerButton">
@@ -44,7 +42,9 @@ const Header = () => {
                 Contact Us
               </Link>
             </li>
-            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">Cart</li>
+            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
+              Cart
+            </li>
             <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
               <button className="logstate" onClick={handleLogState}>
                 {logState ? "Log Out" : "Log In"}

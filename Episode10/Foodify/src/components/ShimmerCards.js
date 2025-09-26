@@ -1,17 +1,11 @@
 const ShimmerCards = () => {
   return (
     <>
-      <div className="resContainer" style={{ height: "248px" }}>
-        <div className="resShimmerImg"></div>
-        <div className="resShimmerName">
-          <h3></h3>
-        </div>
-        <div className="resShimmerFooter">
-          <h4 className="resTime"></h4>
-        </div>
-        <div className="resShimmerCuisins">
-          <h4></h4>
-        </div>
+      <div className="m-4 p-4 w-63 bg-gray-100 rounded-lg h-96 shadow-md">
+        <div className="h-44 w-full bg-gray-200 rounded-lg"></div>
+        <div className="my-4 p-4 w-full rounded-lg bg-gray-200"></div>
+        <div className="my-4 p-4 w-[75%] rounded-lg bg-gray-200"></div>
+        <div className="my-4 p-4 w-[50%] rounded-lg bg-gray-200"></div>
       </div>
     </>
   );
