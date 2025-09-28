@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ShimmerCards from "./ShimmerCards";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withDiscountLabel } from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantList from "../utils/useRestaurantList";
 
@@ -11,6 +11,7 @@ const Body = () => {
   const [resSearch, setResSearch] = useState("");
   const onlineStatus = useOnlineStatus();
   // const { resList, filteredResList } = useRestaurantList;
+  const RestaurantCardDiscount = withDiscountLabel(RestaurantCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -112,7 +113,12 @@ const Body = () => {
                 key={details.info.id}
                 className="resCardLink"
               >
-                <RestaurantCard resData={details.info} />
+                {details.info.aggregatedDiscountInfoV3 ? (
+                  // Higher Order Component
+                  <RestaurantCardDiscount resData={details.info} />
+                ) : (
+                  <RestaurantCard resData={details.info} />
+                )}
               </Link>
             ))
           )}
