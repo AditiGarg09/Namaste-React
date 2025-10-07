@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import image from "../../images/headerLogo.png";
+import UserContext from "../utils/userContext";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
@@ -10,6 +11,8 @@ const Header = () => {
   const handleLogState = () => {
     setLogState(!logState);
   };
+
+  const data = useContext(UserContext);
 
   return (
     <>
@@ -47,7 +50,9 @@ const Header = () => {
             </li>
             <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
               <button className="logstate" onClick={handleLogState}>
-                {logState ? "Log Out" : "Log In"}
+                {logState
+                  ? `Log Out - ${data.loggedInUser}`
+                  : `Log In - ${data.loggedInUser}`}
               </button>
             </li>
           </ul>

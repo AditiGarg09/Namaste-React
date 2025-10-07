@@ -1,9 +1,10 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import UserContext from "./utils/userContext";
 
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
@@ -11,13 +12,29 @@ const ContactUs = lazy(() => import("./components/ContactUs"));
 const Freshmart = lazy(() => import("./components/Freshmart"));
 
 const App = () => {
+  // authentication
+  const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    // userInfo Details API
+    const data = {
+      name: "Aditi Garg",
+    };
+    setUserInfo(data.name);
+  }, []);
+
   return (
-    <>
+    // Default Value
+    <UserContext.Provider value={{ loggedInUser: userInfo,setUserInfo }}>
+      {/* userInfo Value */}
       <div id="container">
         <Header />
-        <Outlet />
+        {/* <UserContext.Provider value={{ loggedInUser: "New User" }}> */}
+          {/* New User */}
+          <Outlet />
+        {/* </UserContext.Provider> */}
       </div>
-    </>
+    </UserContext.Provider>
   );
 };
 

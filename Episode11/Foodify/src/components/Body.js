@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ShimmerCards from "./ShimmerCards";
 import RestaurantCard, { withDiscountLabel } from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [resSearch, setResSearch] = useState("");
+  const { loggedInUser, setUserInfo } = useContext(UserContext);
+
   const onlineStatus = useOnlineStatus();
   // const { resList, filteredResList } = useRestaurantList;
   const RestaurantCardDiscount = withDiscountLabel(RestaurantCard);
@@ -91,9 +94,17 @@ const Body = () => {
               Top Restaurants
             </button>
           </div>
+          <div className="p-2">
+            <label>Logged User </label>
+            <input
+              value={loggedInUser}
+              onChange={(event) => setUserInfo(event.target.value)}
+              className="my-4 p-2 rounded-md bg-gray-100 cursor-pointer"
+            />
+          </div>
         </div>
         <div className="flex flex-wrap">
-          {Object.keys(resList).length == 0 ? (
+          {resList.length == 0 ? (
             <>
               <ShimmerCards />
               <ShimmerCards />
