@@ -5,6 +5,9 @@ import Body from "./components/Body";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/userContext";
+import appStore from "./utils/appStore";
+import { Provider } from "react-redux";
+
 
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
@@ -24,17 +27,19 @@ const App = () => {
   }, []);
 
   return (
+    <Provider store={appStore} >
     // Default Value
-    <UserContext.Provider value={{ loggedInUser: userInfo,setUserInfo }}>
-      {/* userInfo Value */}
-      <div id="container">
-        <Header />
-        {/* <UserContext.Provider value={{ loggedInUser: "New User" }}> */}
+      <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+        {/* userInfo Value */}
+        <div id="container">
+          <Header />
+          {/* <UserContext.Provider value={{ loggedInUser: "New User" }}> */}
           {/* New User */}
           <Outlet />
-        {/* </UserContext.Provider> */}
-      </div>
-    </UserContext.Provider>
+          {/* </UserContext.Provider> */}
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

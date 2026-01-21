@@ -4,7 +4,8 @@ import ShimmerCards from "./ShimmerCards";
 import RestaurantCard, { withDiscountLabel } from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
-import useRestaurantList from "../utils/useRestaurantList";
+import {resMenuList} from "../utils/constants";
+// import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -20,17 +21,17 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(resMenuList);
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    
     const jsonData = await data.json();
     setResList(
       //optional chaining
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredResList(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
