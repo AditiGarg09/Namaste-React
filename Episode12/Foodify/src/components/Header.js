@@ -2,10 +2,11 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import image from "../../images/headerLogo.png";
 import UserContext from "../utils/userContext";
-// import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [logState, setLogState] = useState(true);
+
   // const onlineStatus = useOnlineStatus();
 
   const handleLogState = () => {
@@ -14,40 +15,57 @@ const Header = () => {
 
   const data = useContext(UserContext);
 
+  const cartItems = useSelector((store) => store.cart.items);
+
+  const totalCartItems = Object.values(cartItems).reduce(
+    (total, item) => total + (item.quantity || 0),
+    0
+  );
+
   return (
     <>
       <div className="flex justify-between shadow-xl sticky w-full top-0 z-100 bg-gray-100">
-        {/* <div className="onlineStatusLogo" title="Online Status">
-          {onlineStatus ? "🟢" : "🔴"}
-        </div> */}
+
         <Link to="/">
           <div className="p-2 m-2">
             <img className="w-10" src={image} />
           </div>
         </Link>
+
         <div className="flex items-center">
+
           <ul className="flex p-2 m-2">
-            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
-              <Link to="/freshmart" className="headerButton">
+
+            <Link to="/">
+              <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
+                Home
+              </li>
+            </Link>
+
+            <Link to="/freshmart">
+              <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
                 Freshmart
-              </Link>
-            </li>
-            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
-              <Link to="/aboutUs" className="headerButton">
+              </li>
+            </Link>
+
+            <Link to="/aboutUs">
+              <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
                 About Us
-              </Link>
-            </li>
-            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
-              <Link to="/contactUs" className="headerButton">
+              </li>
+            </Link>
+
+            <Link to="/contactUs">
+              <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
                 Contact Us
-              </Link>
-            </li>
-            <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
-              Cart
-            </li>
+              </li>
+            </Link>
+
+            <Link to="/cart">
+              <li className="hover:bg-red-700  p-2 mr-4 hover:rounded-lg hover:text-white font-bold">
+                Cart ({totalCartItems} items)
+              </li>
+            </Link>
+
             <li className="hover:bg-red-700 p-2 mr-4 hover:rounded-lg hover:text-white">
               <button className="logstate" onClick={handleLogState}>
                 {logState
@@ -55,6 +73,7 @@ const Header = () => {
                   : `Log In - ${data.loggedInUser}`}
               </button>
             </li>
+
           </ul>
         </div>
       </div>

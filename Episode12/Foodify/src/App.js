@@ -1,13 +1,12 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
+import Cart from "./components/Cart";
 import Body from "./components/Body";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import UserContext from "./utils/userContext";
 import appStore from "./utils/appStore";
 import { Provider } from "react-redux";
-
 
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
@@ -15,30 +14,12 @@ const ContactUs = lazy(() => import("./components/ContactUs"));
 const Freshmart = lazy(() => import("./components/Freshmart"));
 
 const App = () => {
-  // authentication
-  const [userInfo, setUserInfo] = useState();
-
-  useEffect(() => {
-    // userInfo Details API
-    const data = {
-      name: "Aditi Garg",
-    };
-    setUserInfo(data.name);
-  }, []);
-
   return (
     <Provider store={appStore} >
-    // Default Value
-      <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
-        {/* userInfo Value */}
-        <div id="container">
-          <Header />
-          {/* <UserContext.Provider value={{ loggedInUser: "New User" }}> */}
-          {/* New User */}
-          <Outlet />
-          {/* </UserContext.Provider> */}
-        </div>
-      </UserContext.Provider>
+      <div id="container">
+        <Header />
+        <Outlet />
+      </div>
     </Provider>
   );
 };
@@ -65,6 +46,14 @@ const headerRouting = createBrowserRouter([
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
             <AboutUs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Cart />
           </Suspense>
         ),
       },

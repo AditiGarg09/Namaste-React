@@ -1,4 +1,5 @@
 import { CDN_images } from "../utils/constants";
+import food_placeholder from "../../images/food_placeholder.webp";
 
 const RestaurantCard = (props) => {
   const { name, avgRating, cloudinaryImageId, sla, cuisines } = props.resData;
@@ -8,7 +9,11 @@ const RestaurantCard = (props) => {
       <div className="m-4 p-4 w-63 bg-gray-100 rounded-lg h-96 overflow-hidden shadow-md hover:shadow-2xl">
         <div className="overflow-hidden rounded-lg">
           <img
-            src={CDN_images + cloudinaryImageId}
+            src={(CDN_images + cloudinaryImageId)}
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = food_placeholder;
+            }}
             className="hover:scale-125 transition duration-500 ease-in-out h-44 w-full"
           />
         </div>
